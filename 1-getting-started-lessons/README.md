@@ -1,14 +1,14 @@
-# Getting Started with Web Development
+# 웹 개발 시작하기
 
-In this section of the curriculum, you will be introduced to non project-based concepts important to becoming a professional developer.
+커리큘럼의 해당 세션에서는 프로젝트 기반이 아닌 전문 개발자가 되는 데 중요한 개념을 소개합니다.
 
-### Topics
+### 토픽
 
-1. [Introduction to Programming Languages and Tools of the Trade](1-intro-to-programming-languages/README.md)
-2. [Basics of GitHub](2-github-basics/README.md)
-3. [Basics of Accessibility](3-accessibility/README.md)
+1. [프로그래밍 언어 및 도구 소개](1-intro-to-programming-languages/README.md)
+2. [GitHub의 기초](2-github-basics/README.md)
+3. [접근성의 기초](3-accessibility/README.md)
 
-### Credits
+### 크레딧
 
 Basics of Accessibility was written with ♥️ by [Christopher Harrison](https://twitter.com/geektrainer)
 

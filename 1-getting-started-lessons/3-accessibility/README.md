@@ -1,169 +1,160 @@
-# Creating Accessible Webpages
+# 접근 가능한 웹 페이지 생성하기
 
 ![All About Accessibility](webdev101-a11y.png)
 > Sketchnote by [Tomomi Imura](https://twitter.com/girlie_mac)
 
-## Pre-Lecture Quiz
+## 강의 전 퀴즈
 [Pre-lecture quiz](.github/pre-lecture-quiz.md)
 
-> The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect.
+> 웹의 힘은 보편성에 있습니다. 장애에 관계없이 모든 사람이 접근하는 것은 필수 요소입니다.
 >
 > \- Sir Timothy Berners-Lee, W3C Director and inventor of the World Wide Web
 
-This quote perfectly highlights the importance of creating accessible websites. An application that can't be accessed by all is by definition exclusionary. As web developers we should always have accessibility in mind. By having this focus from the beginning you will be well on your way to ensure everyone can access the pages you create. In this lesson, you'll learn about the tools that can help you ensure that your web assets are accessible and how to build with accessibility in mind. 
+이 인용문은 접근 가능한 웹 사이트를 만든다는 것의 중요성을 완벽하게 강조합니다. 모든 사람이 접근할 수 없는 애플리케이션은 정의에 따라 제외됩니다. 웹 개발자로서 우리는 항상 접근성을 염두에 두어야합니다. 처음부터 이 곳에 초점을 두면 모든 사람이 자신이 만든 페이지에 접근할 수 있도록 하는 데 도움이 됩니다. 이 강의에서는 웹 어셋에 접근할 수 있는지 확인하는 데 도움이 되는 도구와 접근성을 염두에 두고 빌드하는 방법에 대해 알아 봅니다.
 
-## Tools to use
+## 사용 도구
 
-### Screen readers
+### 스크린 리더
 
-One of the best-known accessibility tools are screen readers.
+가장 잘 알려진 접근성 도구 중 하나는 스크린 리더입니다.
 
-[Screen readers](https://en.wikipedia.org/wiki/Screen_reader) are commonly used clients for those with vision impairments. As we spend time ensuring a browser properly conveys the information we wish to share, we must also ensure a screen reader does the same.
+[스크린 리더](https://en.wikipedia.org/wiki/Screen_reader)는 시각 장애가 있는 사람들을 위해 일반적으로 사용되는 클라이언트입니다. 브라우저에서 공유하려는 정보를 올바르게 전달하는지 확인하는 데 시간을 할애 할 때 스크린 리더도 동일한 작업을 수행하도록 해야합니다.
 
-At its most basic, a screen reader will read a page from top to bottom audibly. If your page is all text, the reader will convey the information in a similar fashion to a browser. Of course, web pages are rarely purely text; they will contain links, graphics, color, and other visual components. Care must be taken to ensure that this information is read correctly by a screen reader.
+가장 기본적인 스크린 리더는 페이지를 위에서 아래로 소리내며 읽습니다. 페이지가 모두 텍스트인 경우 리더는 브라우저와 유사한 방식으로 정보를 전달합니다. 물론 웹 페이지는 문자 그대로가 아닌 텍스트가 있습니다. 여기에는 링크, 그래픽, 색상 및 기타 시각적 구성 요소가 포함됩니다. 스크린 리더가 정보를 올바르게 읽을 수 있도록 주의를 기울여야 합니다.
 
-Every web developer should familiarize themselves with a screen reader. As highlighted above, it's the client your users will utilize. Much in the same way you're familiar with how a browser operates, you should learn how a screen reader operates. Fortunately, screen readers are built into most operating systems.
+모든 웹 개발자는 스크린 리더에 익숙해야합니다. 위에서 강조한 것처럼 사용자가 활용할 클라이언트입니다. 브라우저가 작동하는 방식에 익숙한 것과 마찬가지로 스크린 리더가 작동하는 방식을 배워야합니다. 다행히 스크린 리더는 대부분의 운영체제에 내장되어 있으며, 많은 브라우저에는 스크린 리더를 모방하는 확장이 포함되어 있습니다.
 
-Some browsers also have built-in tools and extensions that can read text aloud or even provide some basic navigational features, such as [these accessibility-focused Edge browser tools](https://support.microsoft.com/en-us/help/4000734/microsoft-edge-accessibility-features). These are also important accessibility tools, but function very differently from screen readers and they should not be mistaken for screen reader testing tools.
-
-✅ Try a screen reader and browser text reader. On Windows [Narrator](https://support.microsoft.com/en-us/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1) is included by default, and [JAWS](https://webaim.org/articles/jaws/) and [NVDA](https://www.nvaccess.org/about-nvda/) can also be installed. On macOS and iOS, [VoiceOver](https://support.apple.com/guide/voiceover/welcome/10) is installed by default.
-
-### Zoom
-
-Another tool commonly used by people with vision impairments is zooming. The most basic type of zooming is static zoom, controlled through `Control + plus sign (+)` or by decreasing screen resolution. This type of zoom causes the entire page to resize, so using [responsive design](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design) is important to provide a good user experience at increased zoom levels.
-
-Another type of zoom relies on specialized software to magnify one area of the screen and pan, much like using a real magnifying glass. On Windows, [Magnifier](https://support.microsoft.com/en-us/windows/use-magnifier-to-make-things-on-the-screen-easier-to-see-414948ba-8b1c-d3bd-8615-0e5e32204198) is built in, and [ZoomText](https://www.freedomscientific.com/training/zoomtext/getting-started/) is a third-party magnification software with more features and a larger user base. Both macOS and iOS have a built-in magnification software called [Zoom](https://www.apple.com/accessibility/mac/vision/).
+✅ 스크린 리더 브라우저 확장이나 도구를 시도해보세요.[JAWS](https://webaim.org/articles/jaws/)는 윈도우에서만 작동합니다. 브라우저에는 이러한 목적으로 사용할 수 있는 내장 도구도 있습니다; [these accessibility-focused Edge browser tools](https://support.microsoft.com/en-us/help/4000734/microsoft-edge-accessibility-features) 확인합니다.
 
 ### Contrast checkers
 
-Colors on web sites need to be carefully chosen to  answer the needs of color-blind users or people who have  difficulty seeing low-contrast colors.
+웹 사이트의 색상은 색맹 혹은 저대비 색상을 보기 어려운 사람들의 요구에 맞게 신중하게 선택해야 합니다.
 
-✅ Test a web site you enjoy using for color usage with a browser extension such as [WCAG's color checker](https://microsoftedge.microsoft.com/addons/detail/wcag-color-contrast-check/idahaggnlnekelhgplklhfpchbfdmkjp?hl=en-US). What do you learn?
+✅ [WCAG's color checker](https://microsoftedge.microsoft.com/addons/detail/wcag-color-contrast-check/idahaggnlnekelhgplklhfpchbfdmkjp?hl=en-US)와 같은 브라우저 확장 프로그램을 사용하여 어떤 색상을 쓰는 지 웹 사이트를 테스트합니다. 무엇을 배울 수 있나요?
 
 ### Lighthouse
 
-In the developer tool area of your browser, you'll find the Lighthouse tool. This tool is important to get a first view of the accessibility (as well as other analysis) of a web site. While it's important not to rely exclusively on Lighthouse, a 100% score is very helpful as a baseline.
+브라우저의 개발자 도구에서 Lighthouse 도구를 찾을 수 있습니다. 이 도구는 웹 사이트의 접근성(기타 분석)을 처음으로 파악하는 데 중요합니다. Lighthouse에만 의존하지 않는 것은 중요하지만, 100점을 기준으로 보면 매우 유용합니다.
 
-✅ Find Lighthouse in your browser's developer tool panel and run an analysis on any site. what do you discover?
+✅ 브라우저의 개발자 도구 패널에서 Lighthouse를 찾아 모든 사이트에서 분석을 실행하세요. 무엇을 발견했나요?
 
-## Designing for accessibility
+## 접근성을 위한 디자인
 
-Accessibility is a relatively large topic. To help you out, there are numerous resources available.
+접근성은 비교적 큰 주제입니다. 도움을 주기 위한 다양한 리소스들이 있습니다.
 
 - [Accessible U - University of Minnesota](https://accessibility.umn.edu/your-role/web-developers)
 
-While we won't be able to cover every aspect of creating accessible sites, below are some of the core tenets you will want to implement. Designing an accessible page from the start is **always** easier than going back to an existing page to make it accessible.
+접근 가능한 사이트를 만드는 모든 사항을 다룰 수 없지만, 이는 구현하려는 핵심 원칙 중 일부입니다. 처음부터 접근 가능한 페이지를 기획하는 것은 접근할 수 있도록 기존 페이지로 돌아가는 것보다 **항상** 쉽습니다.
 
-## Good display principles
+## 좋은 디스플레이 원칙
 
-### Color safe palettes
+### 색상 안전 팔레트
 
-People see the world in different ways, and this includes colors. When selecting a color scheme for your site, you should ensure it's accessible to all. One great [tool for generating color palettes is Color Safe](http://colorsafe.co/).
+사람들은 세상을 다른 방식으로 봅니다. 여기에는 색상도 포함됩니다. 사이트에 대한 색상 스키마를 선택할 때 모든 사람이 접근할 수 있는지 확인해야 합니다. [색상 팔레트를 생성하는 한 가지 훌륭한 도구는 Color Safe](http://colorsafe.co/)입니다.
 
-✅ Identify a web site that is very problematic in its use of color. Why?
+✅ 색상을 사용할 때 매우 문제가 있는 웹 사이트를 식별하십시오. 왜 해야될까요?
 
-### Use the correct HTML
+### 텍스트를 적절하게 강조하기
 
-With CSS and JavaScript it's possible to make any element look like any type of control. `<span>` could be used to create a `<button>`, and `<b>` could become a hyperlink. While this might be considered easier to style, it conveys nothing to a screen reader. Use the appropriate HTML when creating controls on a page. If you want a hyperlink, use `<a>`. Using the right HTML for the right control is called making use of Semantic HTML.
+색상, [font weight](https://developer.mozilla.org/docs/Web/CSS/font-weight) 또는 기타 [text decoration](https://developer.mozilla.org/docs/Web/CSS/text-decoration)으로 텍스트를 강조하는 것은 본질적으로 스크린 리더에 중요하다고 알리지 않습니다. 단어는 키워드이기 때문에 굵게 표시되었거나 첫 번째 단어 혹은 디자이너가 굵게 표시해야한다고 결정했기 때문입니다.
 
-✅ Go to any web site and see if the designers and developers are using HTML properly. Can you find a button that should be a link? Hint: right click and choose 'View Page Source' in your browser to look at underlying code.
+특정 구문을 강조 표시해야 하는 경우에는, `<strong>` 또는 `<em>` 요소를 사용하세요. 이는 스크린 리더에 해당 항목이 중요함을 나타냅니다.
 
-### Create a descriptive heading hierarchy
+### 올바른 HTML 사용하기
 
-Screen reader users [rely heavily on headings](https://webaim.org/projects/screenreadersurvey8/#finding) to find information and navigate through a page. Writing descriptive heading content and using semantic heading tags are important for creating an easily navigable site for screen reader users.
+CSS와 JavaScript를 사용하면 많은 요소가 모든 유형를 제어할 수 있는 것처럼 보일 수 있습니다. `<span>` 은`<button>` 을 만드는 데 사용할 수 있으며, `<b>` 는 하이퍼 링크가 될 수 있습니다. 스타일링이 더 쉽다고 생각될 수 있지만, 스크린 리더에게는 당황스럽습니다. 페이지에 컨트롤을 만들 때는 적절한 HTML을 사용하십시오. 하이퍼 링크를 원하면 `<a>` 를 사용하세요. 올바른 제어를 위해 올바른 HTML을 사용하는 것은 Semantic HTML이라고 의미합니다.
 
-### Use good visual clues
+✅ 웹 사이트로 이동하여 디자이너와 개발자가 HTML을 올바르게 사용하고 있는지 확인하십시오. 링크의 역할을 하는 버튼을 찾을 수 있나요? Hint: 기반 코드를 보려면 브라우저에서 마우스 우측 버튼을 클릭하고 'View Page Source'를 선택하십시오.
 
-CSS offers complete control over the look of any element on a page. You can create text boxes without an outline or hyperlinks without an underline. Unfortunately removing those clues can make it more challenging for someone who depends on them to be able to recognize the type of control.
+### 좋은 시각적 단서를 사용하기
 
-## The importance of link text
+CSS는 페이지에 있는 모든 요소의 형태를 완벽하게 제어합니다. 윤곽선없이 텍스트 상자를 만들거나 밑줄없이 하이퍼 링크를 만들 수 있습니다. 불행히도 이러한 단서를 제거하면 그 단서를 의존하는 사람이 제어 유형을 인식하는 것이 더 어려워질 수 있습니다.
 
-Hyperlinks are core to navigating the web. As a result, ensuring a screen reader can properly read links allows all users to navigate your site.
+## 링크 텍스트의 중요성
 
-### Screen readers and links
+하이퍼 링크는 웹 탐색의 핵심 기능입니다. 결과적으로 스크린 리더가 링크를 제대로 읽을 수 있도록 한다면 모든 사용자가 사이트를 탐색할 수 있습니다.
 
-As you would expect, screen readers read link text in the same way they'd read any other text on the page. With this in mind, the text demonstrated below might feel perfectly acceptable.
+### 스크린 리더 및 링크
+
+예상대로 스크린 리더는 페이지 내부의 다른 텍스트를 읽는 것과 같은 방식으로 링크 텍스트를 읽습니다. 이를 염두하고 아래 설명된 텍스트는 완벽하게 수용 가능하다고 느낄 수 있습니다.
 
 > The little penguin, sometimes known as the fairy penguin, is the smallest penguin in the world. [Click here](https://en.wikipedia.org/wiki/Little_penguin) for more information.
 
 > The little penguin, sometimes known as the fairy penguin, is the smallest penguin in the world. Visit https://en.wikipedia.org/wiki/Little_penguin for more information.
 
-> **NOTE** As you're about to read, you should **never** create links which look like the above.
+> **NOTE** 읽으려고 한다면, 위와 같은 링크는 **절대** 만들지 않아야 합니다.
 
-Remember, screen readers are a different interface from browsers with a different set of features.
+다시 말하지만, 스크린 리더는 브라우저마다 기능이 다른 인터페이스입니다.
 
-### The problem with using the URL
+### URL 사용 문제점
 
-Screen readers read the text. If a URL appears in the text, the screen reader will read the URL. Generally speaking, the URL does not convey meaningful information, and can sound annoying. You may have experienced this if your phone has ever audibly read a text message with a URL.
+스크린 리더는 텍스트를 읽습니다. 텍스트에 URL이 표시되면, 스크린 리더가 URL을 읽습니다. 일반적으로 URL은 의미있는 정보를 전달하지 않으며, 불편하게 들릴 수 있습니다. 스마트폰에서 URL이 포함된 문자 메시지를 음성으로 읽은 적이 있다면 이 문제를 경험했을 수 있습니다.
 
-### The problem with "click here"
+### "click here"의 문제점
 
-Screen readers also have the ability to read only the hyperlinks on a page, much in the same way a sighted person would scan a page for links. If the link text is always "click here", all the user will hear is "click here, click here, click here, click here, click here, ..." All links are now indistinguishable from one another.
+스크린 리더는 또한 시력이 있는 사람이 페이지에서 링크를 찾는 것과 동일한 방식으로 페이지의 하이퍼 링크만 읽을 수 있습니다. 링크 텍스트가 항상 "click here"인 경우 사용자는 "click here, click here, click here, click here, click here, ..." 라는 소리를 들을 수 있습니다. 이는 모든 링크를 서로 구별할 수 없습니다.
 
-### Good link text
+### 좋은 링크 텍스트
 
-Good link text briefly describes what's on the other side of the link. In the above example talking about little penguins, the link is to the Wikipedia page about the species. The phrase *little penguins* would make for perfect link text as it makes it clear what someone will learn about if they click the link - little penguins.
+좋은 링크 텍스트는 링크의 다른 측면에 있는 내용을 간략하게 설명합니다. 작은 펭귄에 대해 이야기하는 예시에서 링크는 종에 대한 Wikipedia 페이지로 연결됩니다. *little penguins* 라는 문구는 누군가가 링크를 클릭하면 무엇을 배울 수 있는지를 명확하게 해주기 때문에 완벽한 링크 텍스트가 됩니다.-little penguins.
 
 > The [little penguin](https://en.wikipedia.org/wiki/Little_penguin), sometimes known as the fairy penguin, is the smallest penguin in the world.
 
-✅ Surf the web for a few minutes to find pages that use obscure linking strategies. Compare them with other, better-linked sites. What do you learn?
+✅ 모호한 연결 전략을 사용하는 페이지를 찾으려면 몇 분 동안 웹을 검색하십시오. 연결이 더 좋은 다른 사이트와 비교하십시오. 무엇을 배울 수 있나요?
 
-#### Search engine notes
+#### 검색 엔진 노트
 
-As an added bonus for ensuring your site is accessible to all, you'll help search engines navigate your site as well. Search engines use link text to learn the topics of pages. So using good link text helps everyone!
+모든 사람이 사이트에 접근할 수 있도록 하면 추가 보너스로 검색 엔진이 사이트를 탐색하는데도 도움이 됩니다. 검색 엔진은 링크 텍스트를 사용하여 페이지 주제를 학습합니다. 따라서 좋은 링크 텍스트를 사용하면 모두에게 도움이 됩니다!
 
 ### ARIA
 
-Imagine the following page:
+다음 페이지를 상상해보시기 바랍니다:
 
 | Product      | Description        | Order        |
 | ------------ | ------------------ | ------------ |
 | Widget       | [Description]('#') | [Order]('#') |
 | Super widget | [Description]('#') | [Order]('#') |
 
-In this example, duplicating the text of description and order make sense for someone using a browser. However, someone using a screen reader would only hear the words *description* and *order* repeated without context.
+이 예시에서는 설명 텍스트와 순서를 복사하는 것이 브라우저를 사용하는 사람에게 의미가 있습니다. 그러나 스크린 리더를 사용하는 사람은 문맥없이 반복되는 *설명* 및 *순서* 라는 단어만 듣게됩니다.
 
-To support these types of scenarios, HTML supports a set of attributes known as [Accessible Rich Internet Applications (ARIA)](https://developer.mozilla.org/docs/Web/Accessibility/ARIA). These attributes allow you to provide additional information to screen readers.
+이러한 유형의 시나리오를 지원하기 위해 HTML은 [Accessible Rich Internet Applications (ARIA)](https://developer.mozilla.org/docs/Web/Accessibility/ARIA)라는 속성 집합을 지원합니다. 이러한 속성을 사용하면 스크린 리더에 추가 정보를 제공할 수 있습니다.
 
-> **NOTE**: Like many aspects of HTML, browser and screen reader support may vary. However, most mainline clients support ARIA attributes.
+> **NOTE**: HTML의 여러 측면과 마찬가지로, 브라우저 및 스크린 리더 지원은 다를 수 있습니다. 그러나 대부분의 주요 클라이언트는 ARIA 속성을 지원합니다.
 
-You can use `aria-label` to describe the link when the format of the page doesn't allow you to. The description for widget could be set as
+페이지 형식이 허용하지 않는 경우에는 `aria-label`을 사용하여 링크에 설명할 수 있습니다. 위젯에 대한 설명은 다음과 같이 설정할 수 있습니다
 
 ``` html
 <a href="#" aria-label="Widget description">description</a>
 ```
 
-✅ In general, using Semantic markup as described above supersedes the use of ARIA, but sometimes there is no semantic equivalent for various HTML widgets. A good example is a Tree. There's no HTML equivalent for a tree, so you identify the generic `<div>` for this element with a proper role and aria values. The [MDN documentation on ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA) contains more useful information.
+✅ 일반적으로, 위에서 설명한 시맨틱 마크업을 사용하는 것은 ARIA의 사용을 대체하지만, 때때로 다양한 HTML 위젯에 해당하는 시맨틱이 없습니다. 좋은 예는 Progressbar입니다. 진행률 표시줄에 해당하는 HTML이 없으므로 적절한 역할 및 aria 값을 사용하여 일반 `<div>`를 식별합니다. [AMDN documentation on ARIA](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA)에 더 유용한 정보가 포함되어 있습니다.
 
 ```html
-<h2 id="tree-label">File Viewer</h2>
-<div role="tree" aria-labelledby="tree-label">
-  <div role="treeitem" aria-expanded="false" tabindex="0">Uploads</div>
+<div id="percent-loaded" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
 </div>
 ```
 
-## Images
+## 이미지
 
-It goes without saying screen readers are unable to automatically read what's in an image. Ensuring images are accessible doesn't take much work - it's what the `alt` attribute is all about. All meaningful images should have an `alt` to describe what they are.
-Images that are purely decorative should have their `alt` attribute set to an empty string: `alt=""`. This prevents screen readers from unnecessarily announcing the decorative image.
+스크린 리더는 이미지에 있는 내용을 자동으로 읽을 수 없습니다. 이미지에 접근할 수 있는지 확인하는 데 많은 작업이 필요하지 않습니다. 바로 `alt` 속성이 끝입니다. 모든 이미지에는 이미지를 설명하는 `alt`가 있어야합니다.
 
-✅ As you might expect, search engines are also unable to understand what's in an image. They also use alt text. So once again, ensuring your page is accessible provides additional bonuses!
+✅ 예상대로, 검색 엔진은 이미지의 내용을 이해할 수 없습니다. 그래서 대체 텍스트를 사용합니다. 다시 한 번, 페이지에 접근할 수 있는지 확인하면 추가 보너스가 제공됩니다!
 
-## The keyboard
+## 키보드
 
-Some users are unable to use a mouse or trackpad, instead relying on keyboard interactions to tab from one element to the next. It's important for your web site to present your content in logical order so a keyboard user can access each interactive element as they move down a document. If you build your web pages with semantic markup and use CSS to style their visual layout, your site should be keyboard-navigable, but it's important to test this aspect manually. Learn more about [keyboard navigation strategies](https://webaim.org/techniques/keyboard/).
+일부 사용자는 마우스 또는 트랙패드를 사용할 수 없으며, 대신 키보드로 의존하여 한 요소에서 다음 요소로 이동합니다. 사용자가 문서를 아래로 이동할 때 키보드가 각 요소에 접근할 수 있도록 웹 사이트에서 콘텐츠를 논리적 순서로 표시하는 것이 중요합니다. 시맨틱 마크업으로 웹 페이지를 만들고 CSS를 사용하여 시각적 레이아웃 스타일을 지정하는 경우, 사이트에서 키보드로 탐색할 수 있어야 하지만, 이 사항은 수동으로 테스트하는 것이 중요합니다. [keyboard navigation strategies](https://webaim.org/techniques/keyboard/)에 대해 자세히 알아보세요.
 
-✅ Go to any web site and try to navigate through it using only your keyboard. What works, what doesn't work? Why?
+✅ 웹 사이트로 이동하여 탭 키만 사용하여 탐색해보십시오. 작동하는 것과 작동하지 않는 것은 무엇입니까? 왜 그럴까요?
 
-## Summary
+## 요약
 
-A web accessible to some is not a truly 'world-wide web'. The best way to ensure the sites you create are accessible is to incorporate accessibility best practices from the start. While there are extra steps involved, incorporating these skills into your workflow now will mean all pages you create will be accessible.
+일부가 접근할 수 있는 웹은 진정한 'world-wide web'이 아닙니다. 만든 사이트에 접근할 수 있도록 하는 가장 좋은 방법은 처음부터 접근성 모범 사례를 통합하는 것입니다. 추가 단계가 포함되어 있지만 이러한 기술을 워크 플로우에 통합하면 만드는 모든 페이지에 접근할 수 있습니다.
 
 ---
 
-## 🚀 Challenge
+## 🚀 도전
 
-Take this HTML and rewrite it to be as accessible as possible, given the strategies you learned.
+이 HTML을 가져와서 학습한 내용에 따라 가능한 하나의 접근을 할 수 있도록 다시 작성하십시오.
 
 ```html
 <!DOCTYPE html>
@@ -215,15 +206,15 @@ Take this HTML and rewrite it to be as accessible as possible, given the strateg
 </html>
 ```
 
-## Post-Lecture Quiz
+## 강의 후 퀴즈
 [Post-lecture quiz](.github/post-lecture-quiz.md)
 
-## Review & Self Study
+## 리뷰 & 자기주도 학습
 
-Many governments have laws regarding accessibility requirements. Read up on your home country's accessibility laws. What is covered, and what isn't? An example is [this government web site](https://accessibility.blog.gov.uk/).
+많은 정부 기관에는 접근성 요구사항에 관한 법률이 있습니다. 자신의 나라에 해당하는 접근성 법률을 읽어보십시오. 보장되거나 안되는 항목은 무엇입니까? [this government web site](https://accessibility.blog.gov.uk/) 예시 입니다.
 
-## Assignment
+## 과제
  
 [Analyze a non-accessible web site](assignment.md)
 
-Credits: [Turtle Ipsum](https://github.com/Instrument/semantic-html-sample) by Instrument
+크레딧: [Turtle Ipsum](https://github.com/Instrument/semantic-html-sample) by Instrument
